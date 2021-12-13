@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,32 +28,75 @@ namespace Lab1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ChartAndCharacteristics.Calculate();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
-        private void TextBox_TextInput_1(object sender, TextCompositionEventArgs e)
+        private void UpdateButtonsEnabled()
         {
-            throw new NotImplementedException();
+            ulong n1, n2, n3;
+            if (ulong.TryParse(textBox1.Text, out n1) && n1 > 10)
+                if (ulong.TryParse(textBox2.Text, out n2) && n2 > 10)
+                    if (ulong.TryParse(textBox3.Text, out n3) && n3 > 10 && n3 > n2 && n3 > n1)
+                    {
+                        button1.IsEnabled = true;
+                        button2.IsEnabled = true;
+                        button3.IsEnabled = true;
+                        return;
+                    }
+
+            button1.IsEnabled = false;
+            button2.IsEnabled = false;
+            button3.IsEnabled = false;
         }
 
-        private void TextBox_TextInput_2(object sender, TextCompositionEventArgs e)
+        private void TextBox_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
         {
-            throw new NotImplementedException();
+            TextBoxInputFilter(sender, e);
         }
 
-        private void TextBox_TextInput_3(object sender, TextCompositionEventArgs e)
+        private void TextBox_PreviewTextInput_2(object sender, TextCompositionEventArgs e)
         {
-            throw new NotImplementedException();
+            TextBoxInputFilter(sender, e);
+        }
+
+        private void TextBox_PreviewTextInput_3(object sender, TextCompositionEventArgs e)
+        {
+            TextBoxInputFilter(sender, e);
+        }
+
+        private void TextBoxInputFilter(object sender, TextCompositionEventArgs e)
+        {
+            string text = ((TextBox)sender).Text + e.Text;
+            ulong num;
+            if (!ulong.TryParse(text, out num))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateButtonsEnabled();
+        }
+
+        private void textBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateButtonsEnabled();
+        }
+
+        private void textBox3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateButtonsEnabled();
         }
     }
 }

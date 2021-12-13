@@ -8,14 +8,14 @@
         Title="Генератор РРСЧ" Height="392" Width="550" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="a (множитель)" HorizontalAlignment="Left" Margin="65,40,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Center" Margin="-300,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="TextBox_TextInput_1"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Center" Margin="-300,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="TextBox_PreviewTextInput_1" TextChanged="textBox1_TextChanged"/>
         <Label Content="R₀ (начальное значение)" HorizontalAlignment="Left" Margin="215,40,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="TextBox_TextInput_2"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Center" Margin="0,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="TextBox_PreviewTextInput_2" TextChanged="textBox2_TextChanged"/>
         <Label Content="m (модуль)" HorizontalAlignment="Left" Margin="365,40,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Center" Margin="300,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextInput="TextBox_TextInput_3"/>
-        <Button Content="Гистограмма, характеристики" HorizontalAlignment="Center" Margin="0,227,0,0" VerticalAlignment="Top" Height="30" Width="285" Click="Button_Click_1"/>
-        <Button Content="Косвенный признак" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Height="30" Width="285" Click="Button_Click_2" />
-        <Button Content="Длина периода и отрезка апериодичности" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Height="30" Width="285" Click="Button_Click_3"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Center" Margin="300,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" PreviewTextInput="TextBox_PreviewTextInput_3" TextChanged="textBox3_TextChanged"/>
+        <Button x:Name="button1" Content="Гистограмма, характеристики" HorizontalAlignment="Center" Margin="0,227,0,0" VerticalAlignment="Top" Height="30" Width="285" Click="Button_Click_1" IsEnabled="False"/>
+        <Button x:Name="button2" Content="Косвенный признак" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Height="30" Width="285" Click="Button_Click_2" IsEnabled="False" />
+        <Button x:Name="button3" Content="Длина периода и отрезка апериодичности" HorizontalAlignment="Center" Margin="0,307,0,0" VerticalAlignment="Top" Height="30" Width="285" Click="Button_Click_3" IsEnabled="False"/>
 
     </Grid>
 </Window>
