@@ -12,7 +12,7 @@ namespace Lab1
         private readonly ulong multiplier;
         private ulong currentNumber;
 
-        public RandomGenerator(ulong startNumber, ulong module, ulong multiplier)
+        public RandomGenerator(ulong startNumber, ulong multiplier, ulong module)
         {
             currentNumber = startNumber;
             this.module = module;

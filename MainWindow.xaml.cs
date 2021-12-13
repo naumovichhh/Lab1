@@ -28,7 +28,8 @@ namespace Lab1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            ChartAndCharacteristics.Calculate();
+            var chart = new ChartAndCharacteristics(ulong.Parse(textBox2.Text), ulong.Parse(textBox1.Text), ulong.Parse(textBox3.Text));
+            chart.Calculate();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

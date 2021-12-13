@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Lab1"
         xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
         mc:Ignorable="d"
-        Title="WindowChart" Height="450" Width="800">
+        Title="Гистограмма и характеристики" Height="688" Width="588" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <oxy:PlotView Name="plotView" />
+        <oxy:PlotView Name="plotView" Margin="0,0,0,216" PanCursor="Hand" ZoomHorizontalCursor="SizeWE" ZoomRectangleCursor="SizeNWSE" ZoomVerticalCursor="SizeNS" />
+        <TextBlock Name="expectedValueText" HorizontalAlignment="Left" Margin="40,501,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock Name="dispersionText" HorizontalAlignment="Left" Margin="40,531,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock Name="squareDeviationText" HorizontalAlignment="Left" Margin="40,561,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
     </Grid>
 </Window>
