@@ -11,7 +11,7 @@ namespace Lab1
     internal class ChartAndCharacteristics
     {
         private const int intervalCount = 20;
-        private const int sequenceSize = 500000;
+        private const int sequenceSize = 100000;
         private double expectedValue;
         private double dispersion;
         private double squareDeviation;
@@ -28,7 +28,10 @@ namespace Lab1
         public void Calculate()
         {
             ObserveSequence();
+        }
 
+        public void Show()
+        {
             var windowChart = new WindowChart();
             windowChart.plotView.Model = GetPlotModel();
             windowChart.expectedValueText.Text = "Математическое ожидание: " + expectedValue.ToString();

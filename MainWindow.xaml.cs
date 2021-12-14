@@ -30,11 +30,14 @@ namespace Lab1
         {
             var chart = new ChartAndCharacteristics(ulong.Parse(textBox2.Text), ulong.Parse(textBox1.Text), ulong.Parse(textBox3.Text));
             chart.Calculate();
+            chart.Show();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
+            var indirectSign = new IndirectSign(ulong.Parse(textBox2.Text), ulong.Parse(textBox1.Text), ulong.Parse(textBox3.Text));
+            indirectSign.Calculate();
+            indirectSign.Show();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
