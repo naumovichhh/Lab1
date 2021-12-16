@@ -22,12 +22,31 @@ namespace Lab1
 
         public ChartAndCharacteristics(ulong startNumber, ulong multiplier, ulong module)
         {
-            generator = new RandomGenerator(startNumber, multiplier, module);
+            this.generator = new RandomGenerator(startNumber, multiplier, module);
         }
 
         public void Calculate()
         {
-            ObserveSequence();
+            for (int i = 1; i <= sequenceSize; ++i)
+            {
+                var val = generator.Next();
+                var oldExpectedValue = expectedValue;
+                expectedValue = oldExpectedValue * (double)(i - 1) / (double)i + val / (double)i;
+                if (i > 1)
+                {
+                    dispersion = dispersion * (double)(i - 2) / (double)(i - 1) + Math.Pow(val - oldExpectedValue, 2) / i;
+                }
+
+                if (val > xMax)
+                    xMax = val;
+                if (val < xMin)
+                    xMin = val;
+
+                sequence[i - 1] = val;
+            }
+
+            squareDeviation = Math.Sqrt(dispersion);
+            CountChartColumns();
         }
 
         public void Show()
@@ -51,30 +70,6 @@ namespace Lab1
             
             model.Series.Add(series);
             return model;
-        }
-
-        private void ObserveSequence()
-        {
-            for (int i = 1; i <= sequenceSize; ++i)
-            {
-                var val = generator.Next();
-                var oldExpectedValue = expectedValue;
-                expectedValue = oldExpectedValue * (double)(i - 1) / (double)i + val / (double)i;
-                if (i > 1)
-                {
-                    dispersion = dispersion * (double)(i - 2) / (double)(i - 1) + Math.Pow(val - oldExpectedValue, 2) / i;
-                }
-
-                if (val > xMax)
-                    xMax = val;
-                if (val < xMin)
-                    xMin = val;
-
-                sequence[i-1] = val;
-            }
-
-            squareDeviation = Math.Sqrt(dispersion);
-            CountChartColumns();
         }
 
         private void CountChartColumns()
