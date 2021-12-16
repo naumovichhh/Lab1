@@ -68,12 +68,16 @@
     </ApplicationDefinition>
     <Compile Include="ChartAndCharacteristics.cs" />
     <Compile Include="IndirectSign.cs" />
+    <Compile Include="Period.cs" />
     <Compile Include="RandomGenerator.cs" />
     <Compile Include="WindowChart.xaml.cs">
       <DependentUpon>WindowChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowIndirectSign.xaml.cs">
       <DependentUpon>WindowIndirectSign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowPeriod.xaml.cs">
+      <DependentUpon>WindowPeriod.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowIndirectSign.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowPeriod.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

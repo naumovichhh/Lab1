@@ -42,7 +42,9 @@ namespace Lab1
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            
+            var period = new Period(ulong.Parse(textBox2.Text), ulong.Parse(textBox1.Text), ulong.Parse(textBox3.Text));
+            period.Calculate();
+            period.Show();
         }
 
         private void UpdateButtonsEnabled()

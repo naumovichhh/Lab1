@@ -23,18 +23,35 @@ namespace Lab1
         public void Calculate()
         {
             double xv = GetXv();
-            int period = GetPeriod(xv);
-            int aperiodicity = GetAperiodicity(period);
+            period = GetPeriod(xv);
+            aperiodicity = GetAperiodicity(period);
         }
 
         public void Show()
         {
-
+            var window = new WindowPeriod();
+            window.periodText.Text = "Длина периода: " + period;
+            window.aperiodicityText.Text = "Длина участка апериодичности: " + aperiodicity;
+            window.Show();
         }
 
         private int GetAperiodicity(int period)
         {
-            return 0;
+            RandomGenerator generator0, generatorP;
+            generatorP = new RandomGenerator(startNumber, multiplier, module);
+            for (int i = 1; i <= period; ++i)
+                generatorP.Next();
+
+            int j;
+            generator0 = new RandomGenerator(startNumber, multiplier, module);
+            double xi3, xi3p;
+            for (j = 1; ; ++j)
+            {
+                xi3 = generator0.Next();
+                xi3p = generatorP.Next();
+                if (xi3 == xi3p)
+                    return j + period;
+            }
         }
 
         private double GetXv()
