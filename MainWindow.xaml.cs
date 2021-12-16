@@ -28,22 +28,46 @@ namespace Lab1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            Button_Click_1Async(sender, e);
+        }
+
+        private async Task Button_Click_1Async(object sender, RoutedEventArgs e)
+        {
             var chart = new ChartAndCharacteristics(ulong.Parse(textBox2.Text), ulong.Parse(textBox1.Text), ulong.Parse(textBox3.Text));
-            chart.Calculate();
+            var windowWait = new WindowWait();
+            windowWait.Show();
+            await Task.Run(chart.Calculate);
+            windowWait.Close();
             chart.Show();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            Button_Click_2Async(sender, e);
+        }
+
+        private async Task Button_Click_2Async(object sender, RoutedEventArgs e)
+        {
             var indirectSign = new IndirectSign(ulong.Parse(textBox2.Text), ulong.Parse(textBox1.Text), ulong.Parse(textBox3.Text));
-            indirectSign.Calculate();
+            var windowWait = new WindowWait();
+            windowWait.Show();
+            await Task.Run(indirectSign.Calculate);
+            windowWait.Close();
             indirectSign.Show();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            Button_Click_3Async(sender, e);
+        }
+
+        private async Task Button_Click_3Async(object sender, RoutedEventArgs e)
+        {
             var period = new Period(ulong.Parse(textBox2.Text), ulong.Parse(textBox1.Text), ulong.Parse(textBox3.Text));
-            period.Calculate();
+            var windowWait = new WindowWait();
+            windowWait.Show();
+            await Task.Run(period.Calculate);
+            windowWait.Close();
             period.Show();
         }
 

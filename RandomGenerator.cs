@@ -21,6 +21,8 @@ namespace Lab1
             this.multiplier = multiplier;
         }
 
+        public double Current => (double)currentNumber / (double)module;
+
         public double Next()
         {
             currentNumber = currentNumber * multiplier % module;

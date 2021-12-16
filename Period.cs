@@ -44,7 +44,11 @@ namespace Lab1
 
             int j;
             generator0 = new RandomGenerator(startNumber, multiplier, module);
-            double xi3, xi3p;
+            double xi3 = generator0.Current;
+            double xi3p = generatorP.Current;
+            if (xi3 == xi3p)
+                return period;
+
             for (j = 1; ; ++j)
             {
                 xi3 = generator0.Next();

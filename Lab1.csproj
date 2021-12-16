@@ -79,6 +79,9 @@
     <Compile Include="WindowPeriod.xaml.cs">
       <DependentUpon>WindowPeriod.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowWait.xaml.cs">
+      <DependentUpon>WindowWait.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowPeriod.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowWait.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
